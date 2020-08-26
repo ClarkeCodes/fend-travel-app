@@ -1,0 +1,136 @@
+@import url(layout.css);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    min-height: 100vh;
+}
+
+#app {
+    color: black;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    margin: 0 auto;
+}
+
+.holder {
+    padding: 2rem;
+    margin: 0;
+}
+
+.holder.feel {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+}
+
+#box {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 4px 5px 17px 6px rgba(59, 74, 107, .07);
+    margin: 1rem;
+}
+
+.entry {
+    background: rgba(59, 74, 107, .4);
+}
+
+#journal-entry {
+    background-color: rgb(168 168 168 / 41%);
+    margin: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.headline {
+    padding: 1rem;
+}
+
+.icon {
+    height: 70%;
+    max-width: 100%;
+}
+
+.visible {
+    display: block;
+}
+
+.title {
+    margin-bottom: 1rem;
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label {
+    display: block;
+    font-size: 27px;
+}
+
+input {
+    display: block;
+    height: 60px;
+    background-color: #e7edefc4;
+    color: black;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    border: none;
+}
+
+button {
+    width: 130px;
+    height: 50px;
+    background: #3b4a6b;
+    color: #ffb927;
+    font-size: 26px;
+    font-family: 'Lato', sans-serif;
+    border: none;
+    box-shadow: 2px 4px 10px 1px #afafafc2;
+    cursor: pointer;
+    margin-top: 1rem;
+    align-self: center;
+}
+h1 {
+    font-size: 36px;
+}
+
+textarea{
+    background:#e7edefc4;
+    resize: none;
+    color: black;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    border: none;
+}
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: black;
+    font-family: 'Lato', sans-serif;
+
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: black;
+    font-family: 'Lato', sans-serif;
+
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: black;
+    font-family: 'Lato', sans-serif;
+
+} 
