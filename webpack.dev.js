@@ -12,7 +12,13 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     devServer: {
-        port: 8000
+        host: 'localhost',
+        port: 8000,
+        proxy: {
+          context: () => true,
+          target: 'http://localhost:8082',
+          secure: false
+        }
     },
     module: {
         rules: [

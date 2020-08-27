@@ -1,6 +1,11 @@
+/* Setup env for API keys */
+const dotenv = require('dotenv');
+dotenv.config();
+
 /* setup global variables and initialize express */
 let projectData = {};
 let userData = {};
+const fetch = require("node-fetch");
 const express = require('express');
 const app = express();
 
@@ -18,7 +23,7 @@ app.use(cors());
 app.use(express.static('dist'));
 
 // Spin up the server
-const port = 8080;
+const port = 8082;
 const server = app.listen(port, listening);
 
 app.get('/', function(req, res) {
@@ -37,6 +42,26 @@ app.get("/all", sendData);
 function sendData(req, res) {
     res.send(projectData);
 }
+
+app.post('/getLocation', async(req, res) => {
+    console.log(req.body);
+    console.log(process.env.GEOCODES_NAME);
+    const url = `http://api.geonames.org/searchJSON?q=${req.body.location}&maxRows=1&username=${process.env.GEOCODES_NAME}`;
+    const response = await fetch(url);
+    console.log(response);
+    try {
+        const data = await response.json();
+        let coordinates = {
+            lat: data.geonames[0].lat,
+            long: data.geonames[0].lng
+        };
+        console.log(data.geonames[0]);
+        console.log(coordinates);
+        res.send(coordinates);
+    } catch (error) {
+        console.log("Error", error);
+    }
+})
 
 // Post route for adding new entry to journal
 app.post('/addEntry', addEntry);
