@@ -1,12 +1,20 @@
-function handleSubmit(that) {
+async function handleSubmit(that) {
     let userData = {
         to: that.to.value,
         from: that.from.value,
-        date: that.date.value
+        startDate: that.depart.value,
+        endDate: that.return.value
     };
+    Client.handleDates(userData.startDate, userData.endDate);
+
     console.log(userData);
-    Client.getLocation(userData.to)
-    return false;
+    const coordinates = await Client.getLocation(userData.to)
+    console.log("TEST", coordinates);
+    const weather = await Client.getWeather(coordinates);
+    console.log(weather);
+    const image = await Client.getPhoto(userData.to);
+    console.log(image);
+    
 }
 
 
@@ -20,36 +28,6 @@ function getInput(zip) {
         postData('/addEntry', {temp: data.main.temp, date: today, input: input});
         updateUI();
     });
-}
-
-/* Function to GET Web API Data*/
-const getData = async(baseURL, zip, key) => {
-    const response = await fetch(baseURL + zip + key);
-    try {
-        const data = await response.json();
-        return data;
-    } catch(error) {
-        console.log("error", error);
-    }
-}
-
-/* Function to POST data */
-const postData = async(url = '', data = {}) => {
-    const response = await fetch(url, {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-    try {
-        const newData = await response.json();
-        return newData;
-    } catch(error) {
-        console.log("error", error);
-    }
-
 }
 
 /* GET project data and update UI */

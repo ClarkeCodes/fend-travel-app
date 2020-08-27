@@ -44,35 +44,42 @@ function sendData(req, res) {
 }
 
 app.post('/getLocation', async(req, res) => {
-    console.log(req.body);
-    console.log(process.env.GEOCODES_NAME);
     const url = `http://api.geonames.org/searchJSON?q=${req.body.location}&maxRows=1&username=${process.env.GEOCODES_NAME}`;
     const response = await fetch(url);
-    console.log(response);
+    // console.log(response);
     try {
         const data = await response.json();
         let coordinates = {
             lat: data.geonames[0].lat,
             long: data.geonames[0].lng
         };
-        console.log(data.geonames[0]);
-        console.log(coordinates);
         res.send(coordinates);
     } catch (error) {
         console.log("Error", error);
     }
 })
 
-// Post route for adding new entry to journal
-app.post('/addEntry', addEntry);
+app.post('/getWeather', async(req, res) => {
+    console.log(req.body);
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${req.body.lat}&lon=${req.body.long}&key=${process.env.WEATHERBIT_KEY}`;
+    console.log(url);
+    const response = await fetch(url)
+    try {
+        const data = await response.json();
+        res.send(data);
+    } catch(error) {
+        console.log("Error", error);
+    }
+})
 
-function addEntry(req, res) {
-    
-    const newEntry = {
-        temp: req.body.temp,
-        date: req.body.date,
-        input: req.body.input
-    };
-    projectData = newEntry;
-    res.send(projectData);
-}
+app.post('/getPhoto', async(req, res) => {
+    console.log(req.body);
+    const url = `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${req.body.city}&image_type=photo`;
+    const response = await fetch(url)
+    try {
+        const data = await response.json();
+        res.send(data);
+    } catch(error) {
+        console.log("Error", error);
+    }
+})
