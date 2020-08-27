@@ -14,4 +14,6 @@ TBA
 
 TBA
 
-## Credits
+## Acknowledgements
+- Used the answer [this question on StackOverflow](https://stackoverflow.com/questions/37487826/send-form-data-to-javascript-on-submit) to handle the form submit.
+
