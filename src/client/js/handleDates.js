@@ -9,7 +9,7 @@ function handleDates(startDate, endDate) {
     console.log(duration);
     console.log(countdown);
 
-    return { duration: duration, countdown: countdown };
+    return { depart: startDate, duration: duration, countdown: countdown };
 }
 
 export { handleDates };

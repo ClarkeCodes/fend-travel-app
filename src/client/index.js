@@ -1,8 +1,6 @@
 import { handleSubmit } from './js/handleSubmit';
-import { getLocation } from './js/getLocation';
-import { getWeather } from './js/getWeather';
 import { handleDates } from './js/handleDates';
-import { getPhoto } from './js/getPhoto';
+import { getData } from './js/getData';
 import { updateUI } from './js/updateUI';
 import { refresh } from './js/updateUI';
 
@@ -13,10 +11,8 @@ import './styles/results.scss';
 
 export { 
     handleSubmit,
-    getLocation, 
-    getWeather, 
     handleDates,
-    getPhoto,
+    getData,
     updateUI,
     refresh
 };

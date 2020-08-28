@@ -1,12 +1,13 @@
-async function getPhoto(city) {
-    const response = await fetch('/getPhoto', {
+async function getData(url, data) {
+    console.log("Data", data);
+    const response = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ city: city })
+        body: JSON.stringify(data)
     })
     try {
         const data = await response.json();
@@ -17,4 +18,4 @@ async function getPhoto(city) {
     }
 }
 
-export { getPhoto };
+export { getData };
