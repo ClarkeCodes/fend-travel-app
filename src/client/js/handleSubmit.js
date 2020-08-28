@@ -1,51 +1,27 @@
 async function handleSubmit(that) {
+    let projectData = {};
     let userData = {
         to: that.to.value,
         from: that.from.value,
         startDate: that.depart.value,
         endDate: that.return.value
     };
-    Client.handleDates(userData.startDate, userData.endDate);
-
+    
+    projectData = Client.handleDates(userData.startDate, userData.endDate);
     console.log(userData);
     const coordinates = await Client.getLocation(userData.to)
-    console.log("TEST", coordinates);
     const weather = await Client.getWeather(coordinates);
-    console.log(weather);
+    const weatherData = {
+        city: weather.city_name,
+        high_temp: weather.data[0].high_temp,
+        low_temp: weather.data[0].low_temp,
+        forecast: weather.data[0].weather.description
+    }
     const image = await Client.getPhoto(userData.to);
-    console.log(image);
-    
-}
-
-
-
-/* Function called by event listener */
-function getInput(zip) {
-    input = document.getElementById('feelings').value;
-    getData(baseURL, zip, apiKey)
-    .then(function(data) {
-        // add data to POST request
-        postData('/addEntry', {temp: data.main.temp, date: today, input: input});
-        updateUI();
-    });
-}
-
-/* GET project data and update UI */
-const updateUI = async() => {
-    const request = await fetch('/all');
-    try {
-        const allData = await request.json();
-        // make journal entry visible
-        document.getElementById('journal-entry').classList.remove('hidden');
-
-        // update values for journal entry
-        document.getElementById('date').innerHTML = "<strong>Date:</strong> " + allData.date;
-        document.getElementById('temp').innerHTML = "<strong>Temperature:</strong> " + allData.temp + " &deg;F";
-        document.getElementById('content').innerHTML = "<strong>Journal entry:</strong> " + allData.input;
-    }
-    catch(error) {
-        console.log("Error: ", error);
-    }
+    projectData.image_url = image.hits[0].largeImageURL;
+    Object.assign(projectData, weatherData);
+    console.log("ProjectData", projectData);
+    Client.updateUI(projectData);    
 }
 
 export { handleSubmit };
