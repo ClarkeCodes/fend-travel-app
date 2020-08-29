@@ -4,10 +4,8 @@
 }
 
 body {
-    background: white;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0;
-    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
     min-height: 100vh;
 }
 
@@ -23,63 +21,30 @@ body {
     margin: 0;
 }
 
-.holder.feel {
-    display: flex;
-    flex-direction: column;
-    padding-top: 0;
-}
-
 #box {
     background-color: white;
-    // border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 4px 5px 17px 6px rgba(59, 74, 107, .07);
     margin: 1rem;
-}
-
-.entry {
-    background: rgba(59, 74, 107, .4);
-}
-
-#journal-entry {
-    background-color: white;
-    margin: 1rem;
-}
-
-.hidden {
-    display: none;
-}
-
-.headline {
-    padding: 1rem;
-}
-
-.icon {
-    height: 70%;
-    max-width: 100%;
-}
-
-.visible {
-    display: block;
-}
-
-.title {
-    margin-bottom: 1rem;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label {
     display: block;
-    font-size: 27px;
+    font-size: 20px;
+    margin: 5px 0;
 }
 
 input {
     display: block;
-    height: 60px;
-    background-color: #e7edefc4;
+    height: 30px;
+    background-color: #ffffff94;
     color: black;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Lato', sans-serif;
-    border: none;
+    border: 1px dotted #fab17a;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 button {
@@ -96,14 +61,6 @@ h1 {
     font-size: 36px;
 }
 
-textarea{
-    background:#e7edefc4;
-    resize: none;
-    color: black;
-    font-size: 20px;
-    font-family: 'Lato', sans-serif;
-    border: none;
-}
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,

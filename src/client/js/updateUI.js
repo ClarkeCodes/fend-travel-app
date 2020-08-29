@@ -4,6 +4,12 @@ function updateUI(data) {
     formElement.style.display = "none";
     console.log(data);
 
+    // change text based on whether the trip is within 16 days
+    let weatherText = "The current weather is:";
+    if(data.isSoon) {
+        weatherText = "The weather forecast then is:"
+    }
+
     // Add travel data to box
     const box = document.getElementById('box');
     box.innerHTML = `
@@ -12,15 +18,15 @@ function updateUI(data) {
                 <img src="${data.image_url}" alt="${data.city}">
             </div>
             <div class="results__text">
-                <h2 class="results__header">My trip to ${data.city}</h2>
+                <h2 class="results__header">My trip to <strong>${data.city}</strong></h2>
                 <h2 class="results__header">Leaving on ${data.depart}</h2>
                 <p class="results__countdown">Your trip is ${data.countdown} days away. You'll be in ${data.city} for ${data.duration} days.</p>
-                <h3 class="results__weather-header>Forecast for ${data.city}</h3>
                 <p class="results__weather">
-                    Current temperature, high of ${data.high_temp} and low of ${data.low_temp} <br>
+                    <span class="results__weather-header">${weatherText}</span><br>
+                    High of ${data.high_temp}&deg;C, low of ${data.low_temp}&deg;C<br>
                     ${data.forecast}
                 </p>
-                <button onclick='Client.refresh()'>Plan another trip!</button>
+                <!-- <button onclick='Client.refresh()'>Plan another trip!</button> -->
             </div>
         </div>
     `

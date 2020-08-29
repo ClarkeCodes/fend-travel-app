@@ -1,5 +1,4 @@
 async function getData(url, data) {
-    console.log("Data", data);
     const response = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',

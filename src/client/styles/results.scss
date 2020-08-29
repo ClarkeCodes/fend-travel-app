@@ -3,6 +3,10 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 1rem;
+
+    p {
+        font-size: 16px;
+    }
     
     &__image {
         max-width: 50%;
@@ -10,6 +14,8 @@
 
     img {
         max-width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
     }
 
     &__text {
@@ -17,10 +23,22 @@
         display: flex;
         flex-direction: column;
         padding: 1rem;
+        margin: 0.5rem;
     }
 
     &__header {
         font-weight: lighter;
+        font-size: 25px;
+    }
+
+    &__weather-header {
+        font-weight: lighter;
+        font-size: 16px;
+    }
+
+    h3 {
+        font-weight: lighter;
+        font-size: 16px;
     }
 
     &__countdown {
