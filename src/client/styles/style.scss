@@ -16,11 +16,6 @@ body {
     margin: 0 auto;
 }
 
-.holder {
-    padding: 2rem;
-    margin: 0;
-}
-
 #box {
     background-color: white;
     border-radius: 10px;
@@ -47,16 +42,6 @@ input {
     padding: 10px;
 }
 
-button {
-    background: #3b4a6b;
-    color: #ffb927;
-    font-size: 26px;
-    font-family: 'Lato', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 10px 1px #afafafc2;
-    cursor: pointer;
-    align-self: center;
-}
 h1 {
     font-size: 36px;
 }
@@ -69,20 +54,7 @@ button:focus {
     outline: none;
 }
 /* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
+::placeholder {  
     color: black;
     font-family: 'Lato', sans-serif;
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: black;
-    font-family: 'Lato', sans-serif;
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: black;
-    font-family: 'Lato', sans-serif;
-
 } 

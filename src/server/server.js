@@ -3,8 +3,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 /* setup global variables and initialize express */
-let projectData = {};
-let userData = {};
 const fetch = require("node-fetch");
 const express = require('express');
 const app = express();
