@@ -59,7 +59,7 @@ npm run test
 ```
 
 ## Author
-- Eline Jacobse
+- Clarke Jacobse
 
 ## Acknowledgements
 - Background by [Webgradients](https://webgradients.com/)
